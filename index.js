@@ -36,3 +36,14 @@ const storage = multer.discStorage({
 });
 
 const upload = multer({ storage });
+
+//  MONGOOSE SETUP 
+
+const PORT = process.env.PORT || 6001;
+
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParse : true ,
+    useUnifiedTopology : true ,
+}).then(()=>{
+    app.listen(PORT, ()=> console.log(`Server is running on the port number ${PORT}`))
+})
